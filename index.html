@@ -75,17 +75,20 @@
         }
 
         .hero-image-overlay {
-            background:
-                linear-gradient(to bottom, rgba(255,255,255,0.10), rgba(255,255,255,0.18)),
-                linear-gradient(to right, rgba(31,47,62,0.14), rgba(31,47,62,0.04));
-        }
-
+    background:
+        linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(255,255,255,0.10)),
+        linear-gradient(to right, rgba(31,47,62,0.08), rgba(31,47,62,0.02));
+}
+				
+				
         .hero-panel {
-            background: rgba(255,255,255,0.93);
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(230,235,239,0.92);
-            box-shadow: 0 24px 70px rgba(15, 23, 42, 0.08);
-        }
+    background: rgba(255, 255, 255, 0.88); /* was 0.78 */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+}
 
         .service-card,
         .soft-card,
@@ -150,6 +153,29 @@
         .mobile-nav.open {
             max-height: 400px;
         }
+				
+		.footer-brand {
+			position: relative;
+			overflow: visible;
+		}
+
+		.footer-brand-bg {
+			position: absolute;
+			left: 50%;
+			top: -42px;
+			transform: translateX(-50%);
+			width: 340px;
+			max-width: none;
+			opacity: 0.34;
+			pointer-events: none;
+			z-index: 0;
+		}
+
+		.footer-brand-content {
+			position: relative;
+			z-index: 1;
+		}
+		
     </style>
 </head>
 <body class="antialiased">
@@ -169,9 +195,9 @@
             </nav>
 
             <div class="hidden md:flex items-center gap-4">
-                <a href="mailto:info@performancematters-tc.com" class="text-sm font-semibold text-navy hover:text-teal transition">
+        <!--        <a href="mailto:info@performancematters-tc.com" class="text-sm font-semibold text-navy hover:text-teal transition">
                     info@performancematters-tc.com
-                </a>
+                </a>-->
                 <a href="#contact" class="button-primary px-5 py-3 shadow">
                     Schedule a Consultation
                 </a>
@@ -191,9 +217,9 @@
                 <a href="#why-us" class="nav-link">Why Us</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#contact" class="nav-link">Contact</a>
-                <a href="mailto:info@performancematters-tc.com" class="font-semibold text-navy pt-2">
+             <!--   <a href="mailto:info@performancematters-tc.com" class="font-semibold text-navy pt-2">
                     info@performancematters-tc.com
-                </a>
+                </a>-->
                 <a href="#contact" class="button-primary px-5 py-3 text-center shadow">
                     Schedule a Consultation
                 </a>
@@ -204,26 +230,41 @@
     <main>
 
         <!-- Visual Hero -->
-<section class="relative w-full h-[58vh] min-h-[440px] bg-cover bg-center" style="background-image: url('https://cgsmith.me/signature/main.png');">
-    <div class="absolute inset-0 hero-image-overlay"></div>
+<section class="relative w-full h-[64vh] min-h-[440px] bg-cover bg-center" style="background-image: url('https://cgsmith.me/signature/main.png');">
 
-    <div class="absolute inset-x-0 bottom-0 flex justify-center px-6 translate-y-12 md:translate-y-16">
-        <div class="hero-panel rounded-2xl max-w-4xl w-full px-8 md:px-12 py-8 md:py-10">
+    <!-- Subtle global overlay (VERY light) -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.04),rgba(255,255,255,0.08))]"></div>
+
+    <!-- LOCAL darkening behind panel -->
+    <div class="absolute inset-x-0 bottom-0 flex justify-center px-6 translate-y-10 md:translate-y-14 pointer-events-none">
+        <div class="w-full max-w-3xl h-[320px] rounded-2xl 
+            bg-gradient-to-t 
+            from-[rgba(31,47,62,0.25)] 
+            via-[rgba(31,47,62,0.15)] 
+            to-transparent 
+            blur-xl opacity-90">
+        </div>
+    </div>
+
+    <!-- Content Panel -->
+    <div class="absolute inset-x-0 bottom-0 flex justify-center px-6 translate-y-10 md:translate-y-14">
+        <div class="hero-panel rounded-2xl max-w-3xl w-full px-6 md:px-10 py-6 md:py-8">
+            
             <p class="section-eyebrow mb-4">Training • Consulting • Leadership Development</p>
 
-            <h1 class="text-4xl md:text-6xl lg:text-7xl text-navy font-bold leading-[0.95] mb-4">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl text-navy font-bold leading-[0.95] mb-4">
                 Performance<br>Matters
             </h1>
 
-            <div class="w-full flex items-center mb-5">
+            <div class="w-full flex items-center mb-4">
                 <div class="flex-grow border-t-2 border-navy opacity-70"></div>
             </div>
 
-            <h2 class="text-2xl md:text-4xl text-teal tracking-wide mb-5">
+            <h2 class="text-xl md:text-3xl text-teal tracking-wide mb-4">
                 Training and Consulting
             </h2>
 
-            <p class="text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed mb-8">
+            <p class="text-base md:text-lg text-slate-600 max-w-2xl leading-relaxed mb-6">
                 Helping organizations improve leadership, strengthen team performance, and create practical paths to better results.
             </p>
 
@@ -235,6 +276,7 @@
                     Request a Consultation
                 </a>
             </div>
+
         </div>
     </div>
 </section>
@@ -272,7 +314,7 @@
 
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="service-card p-10 text-center flex flex-col items-center">
-                        <img src="https://cgsmith.me/signature/faint_mountain.png" alt="" class="h-16 mb-6 opacity-70 object-contain w-24">
+                        <img src="https://cgsmith.me/signature/faint_mountain.png" alt="" class="h-16 mb-6 opacity-70 object-contain w-40">
                         <h3 class="text-2xl text-navy mb-4">Management Consulting</h3>
                         <p class="text-sm text-slate-600 leading-relaxed mb-8 flex-grow">
                             Assess operational challenges, clarify priorities, and build practical improvement strategies that support stronger performance and healthier organizational structure.
@@ -281,7 +323,7 @@
                     </div>
 
                     <div class="service-card p-10 text-center flex flex-col items-center">
-                        <img src="https://cgsmith.me/signature/faint_mountain.png" alt="" class="h-16 mb-6 opacity-70 object-contain w-24">
+                        <img src="https://cgsmith.me/signature/faint_mountain.png" alt="" class="h-16 mb-6 opacity-70 object-contain w-40">
                         <h3 class="text-2xl text-navy mb-4">Leadership Training</h3>
                         <p class="text-sm text-slate-600 leading-relaxed mb-8 flex-grow">
                             Equip supervisors, managers, and leadership teams with tools that strengthen communication, accountability, coaching, and day-to-day effectiveness.
@@ -290,7 +332,7 @@
                     </div>
 
                     <div class="service-card p-10 text-center flex flex-col items-center">
-                        <img src="https://cgsmith.me/signature/faint_mountain.png" alt="" class="h-16 mb-6 opacity-70 object-contain w-24">
+                        <img src="https://cgsmith.me/signature/faint_mountain.png" alt="" class="h-16 mb-6 opacity-70 object-contain w-40">
                         <h3 class="text-2xl text-navy mb-4">Team Workshops</h3>
                         <p class="text-sm text-slate-600 leading-relaxed mb-8 flex-grow">
                             Facilitate meaningful team conversations and workshops that improve trust, alignment, collaboration, and overall workplace performance.
@@ -390,6 +432,11 @@
                                 <label class="block text-sm font-semibold text-navy mb-2">Name</label>
                                 <input type="text" placeholder="Your name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-navy focus:ring-1 focus:ring-navy transition" required>
                             </div>
+							
+							<div>
+                                <label class="block text-sm font-semibold text-navy mb-2">Agency/Organization</label>
+                                <input type="text" placeholder="Your agency" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-navy focus:ring-1 focus:ring-navy transition" required>
+                            </div>
 
                             <div>
                                 <label class="block text-sm font-semibold text-navy mb-2">Email</label>
@@ -439,17 +486,28 @@
     <footer class="bg-navy text-white py-10 border-t-4 border-teal">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-sm text-slate-300 text-center md:text-left">
-                © Performance Matters. All rights reserved.
+                ©2026 Performance Matters. All rights reserved.
             </div>
 
-            <div class="tracking-[0.2em] text-lg uppercase text-white brand-heading text-center">
-                Performance Matters
-            </div>
+            <div class="footer-brand tracking-[0.2em] text-lg uppercase text-white brand-heading text-center">
+    <img 
+        src="https://cgsmith.me/signature/faint_mountain_teal.png" 
+        alt="" 
+        class="footer-brand-bg"
+    >
+
+    <div class="footer-brand-content">
+        Performance Matters<br>
+        <a href="mailto:info@performancematters-tc.com" class="text-sm text-slate-300 hover:text-white transition normal-case tracking-normal">
+            info@performancematters-tc.com
+        </a>
+    </div>
+</div>
 
             <div class="flex flex-col items-center md:items-end gap-3">
-                <a href="mailto:info@performancematters-tc.com" class="text-sm text-slate-300 hover:text-white transition">
-                    info@performancematters-tc.com
-                </a>
+                <div class="text-sm text-slate-300">
+                Training • Consulting • Leadership Development
+            </div>
 
                 <!-- Social icons hidden for now 
                 <div class="hidden-social flex items-center gap-4">
